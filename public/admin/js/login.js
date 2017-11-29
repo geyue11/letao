@@ -31,7 +31,7 @@ $("form").bootstrapValidator({
                     max: 12,
                     message: '密码长度在6到12位之间'
                 },
-                pwdError: {
+                callback: {
                     message: '密码错误'
                 }
             }
@@ -53,11 +53,12 @@ $("form").on("success.form.bv", function (e) {
                 location.href = "index.html";
             }
             if (info.error == 1000) {
-                console.log(info.message);
-                $("form").data('bootstrapValidator').updateStatus("username","INVALID","callback");
+                //console.log(info.message);
+                $("form").data('bootstrapValidator').updateStatus("username", "INVALID", "callback");
             }
             if (info.error == 1001) {
-                console.log(info.message);
+                //console.log(info.message);
+                $("form").data("bootstrapValidator").updateStatus("password", "INVALID", "callback");
             }
 
         }
