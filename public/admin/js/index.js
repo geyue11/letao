@@ -63,4 +63,5 @@ var option2 = {
         }
     ]
 };
+
 myChart2.setOption(option2);

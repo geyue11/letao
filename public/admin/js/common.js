@@ -1,4 +1,5 @@
 //进度条功能
+
 //禁用进度环
 NProgress.configure({showSpinner: false});
 $(document).ajaxStart(function () {
@@ -10,16 +11,24 @@ $(document).ajaxStop(function () {
     }, 500);
 });
 
+//判断用户是否登录
+if (location.href.indexOf("login.html") == -1) {
+    //如果不是登录页，发送ajax请求
+    $.ajax({
+        type: 'get',
+        url: '/employee/checkRootLogin',
+        success: function (info) {
+            if (info.error == 400) {
+                location.href = "login.html";
+            }
+        }
+    });
+}
+
 //侧边栏二级菜单
 $(".child").prev().on("click", function () {
     $(this).next().slideToggle(400);
 });
-
-
-//$(".nav a").on("click", function () {
-//    $(".nav a").removeClass("now");
-//    $(this).addClass("now");
-//});
 
 //侧边栏隐藏和显示
 $(".icon_menu").on("click", function () {

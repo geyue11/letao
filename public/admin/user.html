@@ -66,7 +66,22 @@
             <li class="active">用户管理</li>
         </ol>
         <!--主体内容-->
-        <div class="lt_content"></div>
+        <div class="lt_content">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td width="10%">序号</td>
+                    <td width="30%">用户名</td>
+                    <td width="30%">手机号</td>
+                    <td width="20%">状态</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>
@@ -92,8 +107,25 @@
         </div>
     </div>
 </div>
+
+<!--模板-->
+<script type="text/html" id="userTpl">
+    <tr>
+        <td>1</td>
+        <td>admin</td>
+        <td>11111111111</td>
+        <td>正常</td>
+        <td>
+            <button class="btn btn-danger">禁用</button>
+            <!--<button class="btn btn-success">启用</button>-->
+        </td>
+    </tr>
+</script>
+
 <!--引入jquery-->
 <script src="lib/jquery/jquery.js"></script>
+<!--引入模板引擎-->
+<script src="lib/artTemplate/template-web.js"></script>
 <!--引入bootstrap.js-->
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <!--表单校验-->
@@ -102,6 +134,6 @@
 <script src="lib/nprogress/nprogress.js"></script>
 <!--引入js-->
 <script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="js/user.js"></script>
 </body>
 </html>
