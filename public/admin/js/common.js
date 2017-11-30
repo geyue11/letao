@@ -1,3 +1,15 @@
+//进度条功能
+//禁用进度环
+NProgress.configure({showSpinner: false});
+$(document).ajaxStart(function () {
+    NProgress.start();
+});
+$(document).ajaxStop(function () {
+    setTimeout(function () {
+        NProgress.done();
+    }, 500);
+});
+
 //侧边栏二级菜单
 $(".child").prev().on("click", function () {
     $(this).next().slideToggle(400);
