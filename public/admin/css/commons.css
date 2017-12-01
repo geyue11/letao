@@ -136,3 +136,27 @@ a:link, a:visited, a:hover, a:active {
     text-align: center;
     vertical-align: middle;
 }
+
+/*上传图片容器*/
+.uploadImgWrap {
+    position: relative;
+}
+
+.uploadImgWrap .button {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.uploadImgWrap .button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+/*隐藏上传图片框*/
+input[type=file] {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+}

@@ -152,30 +152,31 @@
             </div>
         </div>
     </div>
-    <!--模板-->
-    <script type="text/html" id="cate1Tpl">
-        {{each rows v i}}
-        <tr>
-            <td>{{(page-1)*size+i+1}}</td>
-            <td>{{ v.categoryName }}</td>
-        </tr>
-        {{/each}}
-    </script>
+</div>
+<!--模板-->
+<script type="text/html" id="cate1Tpl">
+    {{each rows v i}}
+    <tr>
+        <td>{{(page-1)*size+i+1}}</td>
+        <td>{{ v.categoryName }}</td>
+    </tr>
+    {{/each}}
+</script>
 
-    <!--引入jquery-->
-    <script src="lib/jquery/jquery.js"></script>
-    <!--引入模板引擎-->
-    <script src="lib/artTemplate/template-web.js"></script>
-    <!--引入bootstrap.js-->
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <!--表单校验-->
-    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-    <!--引入分页插件-->
-    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
-    <!--进度条-->
-    <script src="lib/nprogress/nprogress.js"></script>
-    <!--引入js-->
-    <script src="js/common.js"></script>
-    <script src="js/first.js"></script>
+<!--引入jquery-->
+<script src="lib/jquery/jquery.js"></script>
+<!--引入模板引擎-->
+<script src="lib/artTemplate/template-web.js"></script>
+<!--引入bootstrap.js-->
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<!--表单校验-->
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<!--引入分页插件-->
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<!--进度条-->
+<script src="lib/nprogress/nprogress.js"></script>
+<!--引入js-->
+<script src="js/common.js"></script>
+<script src="js/first.js"></script>
 </body>
 </html>

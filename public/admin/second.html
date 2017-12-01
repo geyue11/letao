@@ -67,7 +67,26 @@
             <li class="active">二级分类</li>
         </ol>
         <!--主体内容-->
-        <div class="lt_content"></div>
+        <div class="lt_content">
+            <button class="btn btn-default mb_20 addCat2">添加分类</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td width="10%">序号</td>
+                    <td width="30%">一级分类名称</td>
+                    <td width="30%">二级分类名称</td>
+                    <td width="30%">二级分类LOGO</td>
+                </tr>
+                </thead>
+                <tbody>
+                <!--用模板引擎渲染-->
+                </tbody>
+            </table>
+            <!--分页功能-->
+            <div class="pull-right">
+                <ul id="pagintor"></ul>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -93,16 +112,85 @@
         </div>
     </div>
 </div>
-<!--引入jquery-->
-<script src="lib/jquery/jquery.js"></script>
-<!--引入bootstrap.js-->
-<script src="lib/bootstrap/js/bootstrap.js"></script>
-<!--表单校验-->
-<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-<!--进度条-->
-<script src="lib/nprogress/nprogress.js"></script>
-<!--引入js-->
-<script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<!--添加二级分类模态框-->
+<div class="modal fade addCat2Modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle btn_cate1Text" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="cate1Text">请选择一级分类</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <input type="hidden" name="categoryId">
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <!--模板引擎渲染-->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类的名称">
+                        </div>
+                        <div class="form-group">
+                            <div class="uploadImgWrap">
+                                <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic">
+                                <button class="btn btn-default btn_upImg">上传图片</button>
+                                <input type="hidden" name="brandLogo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <img class="showImg" src="images/none.png" width="100" height="100" alt="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary btn_addCat2">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--模板-->
+    <script type="text/html" id="cate2Tpl">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{ v.categoryName }}</td>
+            <td>{{ v.brandName }}</td>
+            <td><img width="50" height="50" {{v.brandLogo}} ? src="{{ v.brandLogo}}" : src="images/none.png" alt=""></td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="addcate2Tpl">
+        {{each rows v i}}
+        <li data-id="{{v.id}}"><a href="#">{{v.categoryName}}</a></li>
+        {{/each}}
+    </script>
+
+    <!--引入jquery-->
+    <script src="lib/jquery/jquery.js"></script>
+    <!--引入模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!--引入bootstrap.js-->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!--表单校验-->
+    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <!--引入分页插件-->
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <!--上传图片所需插件-->
+    <script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+    <!--进度条-->
+    <script src="lib/nprogress/nprogress.js"></script>
+    <!--引入js-->
+    <script src="js/common.js"></script>
+    <script src="js/second.js"></script>
+</div>
 </body>
 </html>
