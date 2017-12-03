@@ -5,5 +5,5 @@ mui(".mui-slider").slider({
 
 //初始化scroll控件
 mui('.mui-scroll-wrapper').scroll({
-
+    indicators:false
 });

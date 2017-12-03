@@ -31,9 +31,7 @@
             <div class="mui-scroll-wrapper">
                 <ul class="mui-scroll">
                     <!--这里放置真实显示的DOM内容-->
-                    <li>
-                        <a href="#">运动馆</a>
-                    </li>
+                    <!--模板引擎渲染 leftList -->
                 </ul>
             </div>
         </div>
@@ -78,8 +76,33 @@
         </ul>
     </div>
 </div>
+<script type="text/html" id="leftList">
+    {{each rows v i}}
+    <li data-id="{{v.id}}" class="{{i===0?'now':''}}">
+        <a href="javascript:;">{{v.categoryName}}</a>
+    </li>
+    {{/each}}
+</script>
+
+<script type="text/html" id="rightList">
+    {{if rows.length === 0}}
+    <p>该分类下暂无品牌</p>
+    {{/if}}
+    {{each rows v i}}
+    <a href="#">
+        <img src="{{v.brandLogo}}" alt="">
+        <p>{{v.brandName}}</p>
+    </a>
+    {{/each}}
+</script>
+
+
 <!--引入mui.js-->
 <script src="lib/mui/js/mui.js"></script>
+<!--引入zepto-->
+<script src="lib/zepto/zepto.min.js"></script>
+<!--引入模板引擎-->
+<script src="lib/artTemplate/template-web.js"></script>
 <!--引入js样式-->
 <script src="js/common.js"></script>
 <script src="js/category.js"></script>

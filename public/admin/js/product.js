@@ -1,6 +1,6 @@
 $(function () {
     var currPage = 1; //当前页
-    var pageSize = 5; //一页的条数
+    var pageSize = 10; //一页的条数
 
     //页面渲染
     var render = function () {
@@ -13,6 +13,31 @@ $(function () {
             },
             success: function (info) {
                 $("tbody").html(template("productTpl", info));
+
+                //分页
+                $("#pagintor").bootstrapPaginator({
+                    bootstrapMajorVersion: 3,
+                    currentPage: currPage,
+                    totalPages: Math.ceil(info.total / info.size),
+                    itemTexts: function (type, page, current) {
+                        switch (type) {
+                            case 'first':
+                                return '首页';
+                            case 'next':
+                                return '下一页';
+                            case 'last':
+                                return '尾页';
+                            case 'prev':
+                                return '上一页';
+                            default:
+                                return page;
+                        }
+                    },
+                    onPageClicked: function (a, b, c, page) {
+                        currPage = page;
+                        render();
+                    }
+                });
             }
         });
     }
