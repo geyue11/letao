@@ -1,0 +1,18 @@
+.menuList {
+    background-color: #eee;
+    height: 30px;
+}
+.menuList li{
+    width: 25%;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+}
+.menuList li a{
+    font-size: 12px;
+    color: #666;
+}
+
+.menuList li.now a{
+    color: darkorange;
+}

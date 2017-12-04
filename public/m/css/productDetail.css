@@ -1,0 +1,31 @@
+.lt_proName, .lt_price, .lt_size,.lt_num ,.lt_desc{
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.lt_price .price {
+    color: red;
+}
+
+.lt_price .oldPrice {
+    font-size: 14px;
+    color: #666;
+    text-decoration: line-through;
+}
+
+.lt_size span {
+    line-height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+.lt_num span {
+    font-size: 12px;
+    color: #666;
+}
+
+.lt_footer {
+    border-top: 1px solid red;
+    background-color: #eee;
+    padding: 10px;
+}
